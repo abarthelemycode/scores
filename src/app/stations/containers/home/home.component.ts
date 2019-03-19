@@ -28,13 +28,13 @@ export class HomeComponent implements OnInit {
     'nbebikeoverflow' : 'Nb vélo en PARK+'
   };
   stations: Station[] = [];
-  loading: boolean = true;
-  totalStations: number = 0;
-  actualPage: number = 0;
-  page: number = 1;
-  nbElementByPage: number = 10;
+  loading = true;
+  totalStations = 0;
+  actualPage = 0;
+  page = 1;
+  nbElementByPage = 10;
 
-  error: string = ""
+  error = '';
 
   constructor(private stationsService: StationsService, public dialog: MatDialog) {
   }
@@ -61,25 +61,25 @@ export class HomeComponent implements OnInit {
         },
         (err) => {
           this.loading = false;
-          this.error = err
+          this.error = err;
         }
       );
   }
 
-  editStation(station: Station){
-    console.log("edit", station)
+  editStation(station: Station) {
+    console.log('edit', station);
     this.stationsService.editStation(station).subscribe(res => {
       // reload the list after its done
-      this.getStations({})
-    })
+      this.getStations({});
+    });
   }
 
-  deleteStation(station: Station){
-    console.log("delete", station)
+  deleteStation(station: Station) {
+    console.log('delete', station);
     this.stationsService.deleteStation(station).subscribe(res => {
       // reload the list after its done
-      this.getStations({})
-    })
+      this.getStations({});
+    });
   }
 
   changePage(e) {
@@ -112,13 +112,15 @@ export class HomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((res) => {
 
-      if(res !== undefined){
-        if(res.action === "validate") {
-          if(e.type === "edit")
-            this.editStation(res.params)
+      if (res !== undefined) {
+        if (res.action === 'validate') {
+          if (e.type === 'edit') {
+            this.editStation(res.params);
+          }
 
-          if(e.type === "delete")
-            this.deleteStation(res.params)
+          if (e.type === 'delete') {
+            this.deleteStation(res.params);
+          }
         }
       }
     });

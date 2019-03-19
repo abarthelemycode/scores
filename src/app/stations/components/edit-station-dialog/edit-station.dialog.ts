@@ -18,7 +18,7 @@ export class EditStationDialog {
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<EditStationDialog>,
     @Inject(MAT_DIALOG_DATA) public data) {
-      this.station = data.station.fields
+      this.station = data.station.fields;
       this.editForm = this.formBuilder.group({
         station_name: [this.station.station_name, Validators.required],
         station_code: [this.station.station_code, Validators.required],
@@ -28,7 +28,7 @@ export class EditStationDialog {
     }
 
     cancelAction() {
-      this.dialogRef.close({ action: "cancel" });
+      this.dialogRef.close({ action: 'cancel' });
     }
 
     validateAction() {
@@ -37,7 +37,7 @@ export class EditStationDialog {
           return;
       }
 
-      this.dialogRef.close({ action : "validate", params: this.editForm.value });
+      this.dialogRef.close({ action : 'validate', params: this.editForm.value });
     }
 
 }

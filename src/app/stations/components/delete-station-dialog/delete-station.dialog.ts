@@ -7,20 +7,20 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class DeleteStationDialog {
 
-  station = {}
+  station = {};
 
   constructor(
     public dialogRef: MatDialogRef<DeleteStationDialog>,
     @Inject(MAT_DIALOG_DATA) public data) {
-      this.station = data.station
+      this.station = data.station;
     }
 
   cancelAction() {
-    this.dialogRef.close({ action: "cancel" });
+    this.dialogRef.close({ action: 'cancel' });
   }
 
   validateAction() {
-    this.dialogRef.close({ action: "validate", params: this.station });
+    this.dialogRef.close({ action: 'validate', params: this.station });
   }
 
 }
