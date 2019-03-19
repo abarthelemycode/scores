@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>EDIT Station - {{ station.station_code }} {{ station.station_name }} </h1>
+<h1 mat-dialog-title>Editer - {{ station.station_code }} {{ station.station_name }} </h1>
 <div mat-dialog-content>
   <form [formGroup]="editForm">
     <mat-form-field class="field">
@@ -21,6 +21,6 @@
   </form>
 </div>
 <div mat-dialog-actions align="end" >
-  <button mat-button (click)="cancelAction()">Cancel</button>
-  <button mat-button [disabled]="submitted" (click)="validateAction()" cdkFocusInitial>Edit</button>
+  <button mat-button (click)="cancelAction()">Annuler</button>
+  <button mat-button [disabled]="submitted" (click)="validateAction()" cdkFocusInitial>Editer</button>
 </div>

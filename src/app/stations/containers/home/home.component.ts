@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   searchSubscription: Subscription = new Subscription();
   // TODO : put translation instead of brut text
   fields: object = {
-    'actions'      : 'Actions',
     'station_code' : 'Code de la station',
     'station_name' : 'Nom de la station',
     'station_state' : 'Etat des stations',
@@ -25,7 +24,8 @@ export class HomeComponent implements OnInit {
     'nbebike' : 'Nb de vélo electrique',
     'creditcard' : 'Achat possible en station',
     'overflowactivation' : 'PARK + activation',
-    'nbebikeoverflow' : 'Nb vélo en PARK+'
+    'nbebikeoverflow' : 'Nb vélo en PARK+',
+    'action'      : 'Action',
   };
   stations: Station[] = [];
   loading = true;

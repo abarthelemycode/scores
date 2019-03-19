@@ -1,5 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Station } from '../../models';
 
 @Component({
   selector: 'delete-station-dialog',
@@ -7,12 +8,12 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class DeleteStationDialog {
 
-  station = {};
+  station: Station;
 
   constructor(
     public dialogRef: MatDialogRef<DeleteStationDialog>,
     @Inject(MAT_DIALOG_DATA) public data) {
-      this.station = data.station;
+      this.station = data.station.fields as Station;
     }
 
   cancelAction() {
