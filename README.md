@@ -1,5 +1,15 @@
 # Scores
 
+Develop interface who can display services stations and all informations (and CRUD)
+
+API available
+https://opendata.paris.fr/explore/dataset/velib-disponibilite-en-temps-reel/information/
+
+
+Le test consiste à développer une interface qui permet d’afficher les stations de service et les informations liée (nombre de bornes, état ...)
+elle doit permettre d'éditer ses informations et les modifier
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
 
 ## Development server

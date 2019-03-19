@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>EDIT Station - {{ station.station_code }} {{ station.station_name }} </h1>
+<div mat-dialog-content>
+  <form [formGroup]="editForm">
+    <mat-form-field class="field">
+      <input matInput formControlName="station_name"  placeholder="Nom de la station" required>
+    </mat-form-field>
+    <mat-form-field class="field">
+      <input matInput formControlName="station_code" placeholder="Code de la station" required>
+    </mat-form-field>
+    <mat-form-field class="field">
+      <input matInput formControlName="kioskstate" placeholder="Totem" required>
+    </mat-form-field>
+    <mat-form-field class="field">
+      <mat-select formControlName="station_state" required>
+        <mat-option value="Operative">Operative</mat-option>
+        <mat-option value="Work in progress">Work in progres</mat-option>
+        <mat-option value="Close">Close</mat-option>
+      </mat-select>
+      <mat-label>Station state</mat-label>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions align="end" >
+  <button mat-button (click)="cancelAction()">Cancel</button>
+  <button mat-button [disabled]="submitted" (click)="validateAction()" cdkFocusInitial>Edit</button>
+</div>

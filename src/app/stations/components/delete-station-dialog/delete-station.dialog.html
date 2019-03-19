@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Delete station</h1>
+<div mat-dialog-content>
+  <p>Are you sure you want to delete this station :
+    <br>
+    {{ this.data.station.fields.station_code }} - {{ this.data.station.fields.station_name }}
+    ?
+  </p>
+</div>
+<div mat-dialog-actions align="end" >
+  <button mat-button (click)="cancelAction()">Cancel</button>
+  <button mat-button (click)="validateAction()" cdkFocusInitial>Delete</button>
+</div>

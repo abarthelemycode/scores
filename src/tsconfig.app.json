@@ -1,7 +1,15 @@
 {
   "extends": "../tsconfig.json",
+  "compileOnSave": false,
   "compilerOptions": {
     "outDir": "../out-tsc/app",
+    "baseUrl": "src",
+    "paths": {
+       "@env/*": ["environments/*"],
+       "@core/*": ["app/core/*"],
+       "@stations/*": ["app/stations/*"],
+       "@shared/*": ["app/shared/*"],
+    },
     "types": []
   },
   "exclude": [

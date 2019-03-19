@@ -1,0 +1,48 @@
+<div>
+  <mat-paginator
+    [length]="totalStations"
+    [pageSize]="pageSize"
+    [pageIndex]="actualPage"
+    [pageSizeOptions]="[10, 25, 100]"
+    (page)="changePageHandler($event)"
+  >
+  </mat-paginator>
+
+  <table *ngIf="!loading" mat-table [dataSource]="stations" class="mat-elevation-z8 station-datatable">
+
+    <ng-container *ngFor="let fieldKey of fieldsKeys; let i = index" matColumnDef="{{ fieldKey }}">
+      <th mat-header-cell *matHeaderCellDef> {{ fields[fieldKey] }}</th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="fieldKey !== 'actions'; else commonBlock">
+          {{ element.fields[fieldKey]}}
+        </span>
+        <ng-template #commonBlock >
+          <button mat-icon-button	 (click)="clickEditHandler('edit', element)">
+            <mat-icon >Edit</mat-icon></button>
+          <button mat-icon-button (click)="clickEditHandler('delete', element)">
+            <mat-icon >Delete</mat-icon></button>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="fieldsKeys"></tr>
+    <tr mat-row *matRowDef="let row; columns: fieldsKeys;"></tr>
+  </table>
+
+  <mat-card *ngIf="loading"
+     style="display: flex; justify-content: center; align-items: center">
+    <mat-progress-spinner
+      color="primary"
+      mode="indeterminate">
+    </mat-progress-spinner>
+  </mat-card>
+
+  <mat-paginator
+    [length]="totalStations"
+    [pageSize]="pageSize"
+    [pageIndex]="actualPage"
+    [pageSizeOptions]="[10, 25, 100]"
+    (page)="changePageHandler($event)"
+  >
+  </mat-paginator>
+</div>

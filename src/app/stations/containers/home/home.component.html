@@ -1,0 +1,13 @@
+<div>
+  <div *ngIf="error.length > 0" > Error in datatable : {{ error }}</div>
+  <stations-datatable
+    [fields]="fields"
+    [stations]="stations"
+    [totalStations]="totalStations"
+    [pageSize]="nbElementByPage"
+    [actualPage]="actualPage"
+    [loading]="loading"
+    (openDialog)="openDialog($event)"
+    (changePage)="changePage($event)"
+  ></stations-datatable>
+</div>
